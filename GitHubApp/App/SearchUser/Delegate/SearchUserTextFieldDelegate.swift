@@ -15,6 +15,11 @@ class SearchUserTextFieldDelegate: NSObject, UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        view.searchTextFieldDidTapAnimation()
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        view.searchTextFieldDidReturn()
         textField.resignFirstResponder()
+        return true
     }
 }
