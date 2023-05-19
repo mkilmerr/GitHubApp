@@ -12,17 +12,22 @@ protocol SearchUserInteractorProtocol {
 }
 
 class SearchUserInteractor: SearchUserInteractorProtocol {
+    private var presenter: UserSearchPresenterProtocol
     private var service: SearchUserServiceProtocol
     
-    init(service: SearchUserServiceProtocol) {
+    init(presenter: UserSearchPresenterProtocol,
+         service: SearchUserServiceProtocol) {
+        self.presenter = presenter
         self.service = service
     }
     
     func loadUsers() {
-        service.loadUsersDefaultList { result in
+        service.loadUsersDefaultList { [weak self] result in
             switch result {
-            case .success(let users) : break
-            case .failure(let error): break
+            case .success(let users):
+                self?.presenter.presentUserList(users)
+            case .failure(let error):
+                self?.presenter.presentErrorUserList(error)
             }
         }
     }

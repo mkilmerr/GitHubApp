@@ -9,10 +9,15 @@ import Foundation
 
 protocol UserSearchPresenterProtocol {
     func presentUserList(_ users: [User])
+    func presentErrorUserList(_ error: Error)
 }
 
 class UserSearchPresenter: UserSearchPresenterProtocol {
     func presentUserList(_ users: [User]) {
+        
+    }
+    
+    func presentErrorUserList(_ error: Error) {
         
     }
 }
