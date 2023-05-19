@@ -26,7 +26,7 @@ class SearchUserViewController: UIViewController {
 // MARK: - SearchUserDisplayProtocol
 extension SearchUserViewController: SearchUserDisplayProtocol {
     func displayUserList(with users: [User]) {
-
+        customView.users = users
     }
     
     func displayErrorUserList(with error: Error) {

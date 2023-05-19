@@ -8,11 +8,20 @@
 import UIKit
 
 class SearchUserView: UIView {
+    // MARK: - Properties
+    var users: [User]? {
+        didSet {
+            reloadTableView()
+        }
+    }
     // MARK: - Dynamic constraints
     private var searchTextFieldTopConstraint: NSLayoutConstraint!
     
-    // MARK: - SeachTextField Delegate/DataSource
+    // MARK: - Delegate/DataSource
     private lazy var searchTextFieldDelegate = SearchUserTextFieldDelegate(self)
+    private lazy var searchTableViewDataSource = SearchUserTableViewDataSource(self)
+    private lazy var searchTableViewDelegate = SearchUserTableViewDelegate(self)
+    
     // MARK: - UI Elements
     private(set) lazy var searchTextField: UITextField = {
         let textField = UITextField()
@@ -22,16 +31,32 @@ class SearchUserView: UIView {
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
+    private lazy var usersTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(SearchUserTableViewCell.self,
+                           forCellReuseIdentifier: SearchUserTableViewCell.identifier)
+        tableView.delegate = searchTableViewDelegate
+        tableView.dataSource = searchTableViewDataSource
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
-        setupConstraints()
+        configureView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.setupView()
-        self.setupConstraints()
+        self.configureView()
+    }
+}
+// MARK: - TableView Configuration
+extension SearchUserView {
+    private func reloadTableView() {
+        DispatchQueue.main.async { [weak self] in
+            self?.usersTableView.reloadData()
+        }
     }
 }
 // MARK: - Update UI Functions
@@ -76,6 +101,7 @@ extension SearchUserView: ViewConfiguration {
     func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
         addSubview(searchTextField)
+        addSubview(usersTableView)
     }
     
     func setupConstraints() {
@@ -98,5 +124,18 @@ extension SearchUserView: ViewConfiguration {
                 .constraint(equalTo: leadingAnchor,
                             constant: ViewMetrics.TextField.leading)
         ])
+        
+        NSLayoutConstraint.activate([
+            usersTableView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor,
+                                                constant: 30),
+            usersTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            trailingAnchor.constraint(equalTo: usersTableView.trailingAnchor, constant: 16),
+            usersTableView.bottomAnchor.constraint(equalTo: bottomAnchor)
+            
+        ])
+    }
+    func configureView() {
+        setupView()
+        setupConstraints()
     }
 }
