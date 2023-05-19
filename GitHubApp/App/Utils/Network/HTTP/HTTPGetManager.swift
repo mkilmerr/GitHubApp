@@ -9,17 +9,18 @@ import Foundation
 
 protocol HTTPGetProtocol {
     var url: String { get set }
-    func request(completion: @escaping (Result<Data, Error>) -> Void)
+    func request<T: Codable>(completion: @escaping (Result<T, Error>) -> Void)
 }
 
 class HTTPGetManager: HTTPGetProtocol {
+    
     var url: String
     
     init(url: String) {
         self.url = url
     }
     
-    func request(completion: @escaping (Result<Data, Error>) -> Void) {
+    func request<T>(completion: @escaping (Result<T, Error>) -> Void) where T : Decodable, T : Encodable {
         guard let url = URL(string: url) else {
             completion(.failure(HTTPError.invalidURL))
             return
@@ -37,7 +38,13 @@ class HTTPGetManager: HTTPGetProtocol {
                 completion(.failure(HTTPError.unexpected))
                 return
             }
-            completion(.success(data))
+            do {
+                let decoder = JSONDecoder()
+                let responseObject = try decoder.decode(T.self, from: data)
+                completion(.success(responseObject))
+            } catch {
+                completion(.failure(HTTPError.unexpected))
+            }
         }
         
         task.resume()
