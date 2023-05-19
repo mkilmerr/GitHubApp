@@ -8,7 +8,13 @@
 import UIKit
 
 class SearchUserView: UIView {
-    
+    private(set) lazy var searchTextField: UITextField = {
+        let textField = UITextField()
+        textField.placeholder = "Digite..."
+        textField.borderStyle = .roundedRect
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
+    }()
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -26,8 +32,23 @@ class SearchUserView: UIView {
 extension SearchUserView: ViewConfiguration {
     func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
+        addSubview(searchTextField)
     }
     
     func setupConstraints() {
+        NSLayoutConstraint.activate([
+            searchTextField.centerYAnchor.constraint(equalTo: centerYAnchor),
+            searchTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
+            searchTextField
+                .heightAnchor
+                .constraint(equalToConstant: ViewMetrics.TextField.height),
+            trailingAnchor
+                .constraint(equalTo: searchTextField.trailingAnchor,
+                            constant: ViewMetrics.TextField.trailing),
+            searchTextField
+                .leadingAnchor
+                .constraint(equalTo: leadingAnchor,
+                            constant: ViewMetrics.TextField.leading)
+        ])
     }
 }
