@@ -51,20 +51,21 @@ class SearchUserTableViewCell: UITableViewCell {
 }
 // MARK: - Configure Cell
 extension SearchUserTableViewCell {
-    
+  
 }
 // MARK: - View Configuration
 extension SearchUserTableViewCell: ViewConfiguration {
     func setupView() {
         layer.cornerRadius = 16
+        selectionStyle = .none
         addSubview(userImageView)
         backgroundColor = .yellow
     }
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            userImageView.topAnchor.constraint(equalTo: topAnchor),
-            userImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            userImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+            userImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             userImageView.widthAnchor.constraint(equalToConstant: 100),
             userImageView.heightAnchor.constraint(equalToConstant: 100)
         ])

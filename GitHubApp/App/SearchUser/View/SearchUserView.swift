@@ -37,6 +37,8 @@ class SearchUserView: UIView {
                            forCellReuseIdentifier: SearchUserTableViewCell.identifier)
         tableView.delegate = searchTableViewDelegate
         tableView.dataSource = searchTableViewDataSource
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -62,36 +64,24 @@ extension SearchUserView {
 // MARK: - Update UI Functions
 extension SearchUserView {
     public func searchTextFieldDidTapAnimation() {
-        searchTextFieldTopConstraint.isActive = false
         UIView.animate(withDuration: 0.5) { [weak self] in
             guard let self = self else { return }
-            self.updateSearchTextFieldTop()
+            self.scaleUpTextField()
         }
         layoutIfNeeded()
     }
-    private func updateSearchTextFieldTop() {
-        searchTextFieldTopConstraint = searchTextField
-            .topAnchor
-            .constraint(equalTo: safeAreaLayoutGuide.topAnchor,
-                        constant: 40)
-        searchTextFieldTopConstraint.isActive = true
+    private func scaleUpTextField() {
         searchTextField.transform = CGAffineTransform(scaleX: 0.9,
                                                            y: 0.9)
     }
-    private func updateSearchTextFieldToCenter() {
-        searchTextFieldTopConstraint = searchTextField
-            .topAnchor
-            .constraint(equalTo: centerYAnchor,
-                        constant: 0)
+    private func scaleDownTextField() {
         searchTextField.transform = CGAffineTransform(scaleX: 1.0,
                                                       y: 1.0)
-        searchTextFieldTopConstraint.isActive = true
     }
     public func searchTextFieldDidReturn() {
-        searchTextFieldTopConstraint.isActive = false
         UIView.animate(withDuration: 0.5) { [weak self] in
             guard let self = self else { return }
-            self.updateSearchTextFieldToCenter()
+            self.scaleDownTextField()
         }
         layoutIfNeeded()
     }
@@ -107,8 +97,8 @@ extension SearchUserView: ViewConfiguration {
     func setupConstraints() {
         searchTextFieldTopConstraint = searchTextField
             .topAnchor
-            .constraint(equalTo: centerYAnchor,
-                        constant: 0)
+            .constraint(equalTo: safeAreaLayoutGuide.topAnchor,
+                        constant: 40)
         searchTextFieldTopConstraint.isActive = true
         
         NSLayoutConstraint.activate([
