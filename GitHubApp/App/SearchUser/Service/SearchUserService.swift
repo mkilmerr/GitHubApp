@@ -9,15 +9,19 @@ import Foundation
 
 protocol SearchUserServiceProtocol: AnyObject {
     var baseURL: String { get set }
+    var users: String { get set }
+    var httpGetManager: HTTPGetManager? { get set }
     func loadUsersDefaultList()
 }
 
 class SearchUserService: SearchUserServiceProtocol {
     var baseURL: String = "https://api.github.com"
-    private lazy var httpGetManager = HTTPGetManager(url: baseURL)
+    var users: String = "/users"
+    var httpGetManager: HTTPGetManager?
     
     func loadUsersDefaultList() {
-        httpGetManager.request { (result: Result<User, Error>) in
+        httpGetManager = HTTPGetManager(url: "\(baseURL)\(users)")
+        httpGetManager?.request { (result: Result<[User], Error>) in
             switch result {
             case .success(let data) :
                 break
