@@ -54,14 +54,30 @@
 		5D005F962A17D74800ABA6D4 /* GitHubApp */ = {
 			isa = PBXGroup;
 			children = (
-				5D005F972A17D74800ABA6D4 /* AppDelegate.swift */,
-				5D005F992A17D74800ABA6D4 /* SceneDelegate.swift */,
+				5D005FAB2A17DA6200ABA6D4 /* App */,
 				5D005F9B2A17D74800ABA6D4 /* ViewController.swift */,
+				5D005FAC2A17DA6F00ABA6D4 /* AppSceneDelegate */,
 				5D005FA02A17D74900ABA6D4 /* Assets.xcassets */,
 				5D005FA22A17D74900ABA6D4 /* LaunchScreen.storyboard */,
 				5D005FA52A17D74900ABA6D4 /* Info.plist */,
 			);
 			path = GitHubApp;
+			sourceTree = "<group>";
+		};
+		5D005FAB2A17DA6200ABA6D4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		5D005FAC2A17DA6F00ABA6D4 /* AppSceneDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				5D005F972A17D74800ABA6D4 /* AppDelegate.swift */,
+				5D005F992A17D74800ABA6D4 /* SceneDelegate.swift */,
+			);
+			path = AppSceneDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
