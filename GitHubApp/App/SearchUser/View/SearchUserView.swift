@@ -8,10 +8,14 @@
 import UIKit
 
 class SearchUserView: UIView {
+    // MARK: - SeachTextField Delegate/DataSource
+    private lazy var searchTextFieldDelegate = SearchUserTextFieldDelegate(self)
+    // MARK: - UI Elements
     private(set) lazy var searchTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Digite..."
         textField.borderStyle = .roundedRect
+        textField.delegate = searchTextFieldDelegate
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()

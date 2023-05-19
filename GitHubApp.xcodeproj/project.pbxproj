@@ -15,6 +15,7 @@
 		5D005FB32A17E1F500ABA6D4 /* SearchUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D005FB22A17E1F500ABA6D4 /* SearchUserView.swift */; };
 		5D005FB72A17E24B00ABA6D4 /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D005FB62A17E24B00ABA6D4 /* ViewConfiguration.swift */; };
 		5D005FB92A17E65C00ABA6D4 /* SearchUser+ViewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D005FB82A17E65C00ABA6D4 /* SearchUser+ViewMetrics.swift */; };
+		5D005FBD2A17E78B00ABA6D4 /* SearchUserTextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D005FBC2A17E78B00ABA6D4 /* SearchUserTextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		5D005FB22A17E1F500ABA6D4 /* SearchUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserView.swift; sourceTree = "<group>"; };
 		5D005FB62A17E24B00ABA6D4 /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
 		5D005FB82A17E65C00ABA6D4 /* SearchUser+ViewMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SearchUser+ViewMetrics.swift"; sourceTree = "<group>"; };
+		5D005FBC2A17E78B00ABA6D4 /* SearchUserTextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserTextFieldDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		5D005FAD2A17E16000ABA6D4 /* SearchUser */ = {
 			isa = PBXGroup;
 			children = (
+				5D005FBB2A17E75800ABA6D4 /* Delegate */,
 				5D005FAE2A17E18800ABA6D4 /* View */,
 				5D005FAF2A17E18E00ABA6D4 /* ViewController */,
 			);
@@ -127,6 +130,14 @@
 				5D005FB62A17E24B00ABA6D4 /* ViewConfiguration.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5D005FBB2A17E75800ABA6D4 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				5D005FBC2A17E78B00ABA6D4 /* SearchUserTextFieldDelegate.swift */,
+			);
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +212,7 @@
 			files = (
 				5D005FB12A17E1DE00ABA6D4 /* SearchUserViewController.swift in Sources */,
 				5D005FB92A17E65C00ABA6D4 /* SearchUser+ViewMetrics.swift in Sources */,
+				5D005FBD2A17E78B00ABA6D4 /* SearchUserTextFieldDelegate.swift in Sources */,
 				5D005FB32A17E1F500ABA6D4 /* SearchUserView.swift in Sources */,
 				5D005FB72A17E24B00ABA6D4 /* ViewConfiguration.swift in Sources */,
 				5D005F982A17D74800ABA6D4 /* AppDelegate.swift in Sources */,
