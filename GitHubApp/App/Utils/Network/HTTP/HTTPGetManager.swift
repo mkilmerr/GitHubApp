@@ -20,7 +20,7 @@ class HTTPGetManager: HTTPGetProtocol {
         self.url = url
     }
     
-    func request<T>(completion: @escaping (Result<T, Error>) -> Void) where T : Decodable, T : Encodable {
+    func request<T>(completion: @escaping (Result<T, Error>) -> Void) where T : Decodable {
         guard let url = URL(string: url) else {
             completion(.failure(HTTPError.invalidURL))
             return

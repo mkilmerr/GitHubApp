@@ -20,6 +20,7 @@
 		5D005FC32A17F11E00ABA6D4 /* HTTPError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D005FC22A17F11E00ABA6D4 /* HTTPError.swift */; };
 		5D005FC82A17F51300ABA6D4 /* SearchUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D005FC72A17F51300ABA6D4 /* SearchUserService.swift */; };
 		5D005FCB2A17F79600ABA6D4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D005FCA2A17F79600ABA6D4 /* User.swift */; };
+		5D005FCE2A18000200ABA6D4 /* SearchUserInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D005FCD2A18000200ABA6D4 /* SearchUserInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		5D005FC22A17F11E00ABA6D4 /* HTTPError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPError.swift; sourceTree = "<group>"; };
 		5D005FC72A17F51300ABA6D4 /* SearchUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserService.swift; sourceTree = "<group>"; };
 		5D005FCA2A17F79600ABA6D4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5D005FCD2A18000200ABA6D4 /* SearchUserInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				5D005FBB2A17E75800ABA6D4 /* Delegate */,
 				5D005FAE2A17E18800ABA6D4 /* View */,
 				5D005FAF2A17E18E00ABA6D4 /* ViewController */,
+				5D005FCC2A17FFE700ABA6D4 /* Interactor */,
 				5D005FC62A17F46100ABA6D4 /* Service */,
 			);
 			path = SearchUser;
@@ -182,6 +185,14 @@
 				5D005FCA2A17F79600ABA6D4 /* User.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		5D005FCC2A17FFE700ABA6D4 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				5D005FCD2A18000200ABA6D4 /* SearchUserInteractor.swift */,
+			);
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,6 +274,7 @@
 				5D005FB72A17E24B00ABA6D4 /* ViewConfiguration.swift in Sources */,
 				5D005F982A17D74800ABA6D4 /* AppDelegate.swift in Sources */,
 				5D005F9A2A17D74800ABA6D4 /* SceneDelegate.swift in Sources */,
+				5D005FCE2A18000200ABA6D4 /* SearchUserInteractor.swift in Sources */,
 				5D005FC12A17F0FE00ABA6D4 /* HTTPGetManager.swift in Sources */,
 				5D005FCB2A17F79600ABA6D4 /* User.swift in Sources */,
 			);
