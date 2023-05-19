@@ -18,8 +18,15 @@ class SearchUserViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        customView.delegate = self
         view = customView
         interactor?.loadUsers()
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.navigationBar.isHidden = true
     }
 }
 
@@ -31,5 +38,13 @@ extension SearchUserViewController: SearchUserDisplayProtocol {
     
     func displayErrorUserList(with error: Error) {
         
+    }
+}
+// MARK: - SearchUserViewDelegate
+extension SearchUserViewController: SearchUserViewDelegate {
+    func cellDidSelect() {
+        let viewController = UIViewController()
+        viewController.view.backgroundColor = .yellow
+        navigationController?.pushViewController(viewController, animated: true)
     }
 }

@@ -51,15 +51,20 @@ class SearchUserTableViewCell: UITableViewCell {
 }
 // MARK: - Configure Cell
 extension SearchUserTableViewCell {
-  
+    public func configure(with user: User?) {
+        guard let user = user else { return }
+        loginNameLabel.text = user.login
+    }
 }
 // MARK: - View Configuration
 extension SearchUserTableViewCell: ViewConfiguration {
     func setupView() {
         layer.cornerRadius = 16
         selectionStyle = .none
-        addSubview(userImageView)
         backgroundColor = .yellow
+        addSubview(userImageView)
+        addSubview(loginNameLabel)
+       
     }
     
     func setupConstraints() {
@@ -68,6 +73,10 @@ extension SearchUserTableViewCell: ViewConfiguration {
             userImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             userImageView.widthAnchor.constraint(equalToConstant: 100),
             userImageView.heightAnchor.constraint(equalToConstant: 100)
+        ])
+        NSLayoutConstraint.activate([
+            loginNameLabel.centerYAnchor.constraint(equalTo: userImageView.centerYAnchor),
+            loginNameLabel.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 10)
         ])
     }
     

@@ -15,8 +15,7 @@ class SearchUserTableViewDelegate: NSObject, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchUserTableViewCell.identifier,
-                                                       for: indexPath) as? SearchUserTableViewCell else { return }
+        view.delegate?.cellDidSelect()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

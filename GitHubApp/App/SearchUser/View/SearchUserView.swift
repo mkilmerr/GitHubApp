@@ -7,8 +7,13 @@
 
 import UIKit
 
+protocol SearchUserViewDelegate: AnyObject {
+    func cellDidSelect()
+}
 class SearchUserView: UIView {
     // MARK: - Properties
+    weak var delegate: SearchUserViewDelegate?
+    
     var users: [User]? {
         didSet {
             reloadTableView()
@@ -89,7 +94,6 @@ extension SearchUserView {
 // MARK: - ViewConfiguration
 extension SearchUserView: ViewConfiguration {
     func setupView() {
-        translatesAutoresizingMaskIntoConstraints = false
         addSubview(searchTextField)
         addSubview(usersTableView)
     }
