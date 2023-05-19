@@ -1,5 +1,5 @@
 //
-//  UserSearchPresenter.swift
+//  SearchUserPresenter.swift
 //  GitHubApp
 //
 //  Created by Marcos Kilmer  on 19/05/23.
@@ -7,12 +7,12 @@
 
 import Foundation
 
-protocol UserSearchPresenterProtocol {
+protocol SearchUserPresenterProtocol {
     func presentUserList(_ users: [User])
     func presentErrorUserList(_ error: Error)
 }
 
-class UserSearchPresenter: UserSearchPresenterProtocol {
+class SearchUserPresenter: SearchUserPresenterProtocol {
     weak var view: SearchUserDisplayProtocol?
     
     init(view: SearchUserDisplayProtocol) {

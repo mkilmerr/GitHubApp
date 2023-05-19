@@ -12,10 +12,10 @@ protocol SearchUserInteractorProtocol {
 }
 
 class SearchUserInteractor: SearchUserInteractorProtocol {
-    private var presenter: UserSearchPresenterProtocol
+    private var presenter: SearchUserPresenterProtocol
     private var service: SearchUserServiceProtocol
     
-    init(presenter: UserSearchPresenterProtocol,
+    init(presenter: SearchUserPresenterProtocol,
          service: SearchUserServiceProtocol) {
         self.presenter = presenter
         self.service = service
