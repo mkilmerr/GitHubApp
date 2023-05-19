@@ -22,7 +22,9 @@ class SearchUserInteractor: SearchUserInteractorProtocol {
     }
     
     func loadUsers() {
+        presenter.presentLoading()
         service.loadUsersDefaultList { [weak self] result in
+            self?.presenter.presentStopLoading()
             switch result {
             case .success(let users):
                 self?.presenter.presentUserList(users)

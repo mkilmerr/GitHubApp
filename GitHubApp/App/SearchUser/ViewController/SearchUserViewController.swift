@@ -10,9 +10,11 @@ import UIKit
 protocol SearchUserDisplayProtocol: AnyObject {
     func displayUserList(with users: [User])
     func displayErrorUserList(with error: Error)
+    func displayLoading()
+    func displayStopLoading()
 }
 
-class SearchUserViewController: UIViewController {
+class SearchUserViewController: BaseViewController {
     var interactor: SearchUserInteractor?
     private let customView = SearchUserView()
     
@@ -21,12 +23,6 @@ class SearchUserViewController: UIViewController {
         customView.delegate = self
         view = customView
         interactor?.loadUsers()
-        navigationController?.navigationBar.isHidden = true
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        navigationController?.navigationBar.isHidden = true
     }
 }
 
@@ -38,6 +34,14 @@ extension SearchUserViewController: SearchUserDisplayProtocol {
     
     func displayErrorUserList(with error: Error) {
         
+    }
+    
+    func displayStopLoading() {
+        stopAnimating()
+    }
+    
+    func displayLoading() {
+        startAnimating()
     }
 }
 // MARK: - SearchUserViewDelegate

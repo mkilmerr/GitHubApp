@@ -10,9 +10,12 @@ import Foundation
 protocol SearchUserPresenterProtocol {
     func presentUserList(_ users: [User])
     func presentErrorUserList(_ error: Error)
+    func presentLoading()
+    func presentStopLoading()
 }
 
 class SearchUserPresenter: SearchUserPresenterProtocol {
+  
     weak var view: SearchUserDisplayProtocol?
     
     init(view: SearchUserDisplayProtocol) {
@@ -25,5 +28,13 @@ class SearchUserPresenter: SearchUserPresenterProtocol {
     
     func presentErrorUserList(_ error: Error) {
         view?.displayErrorUserList(with: error)
+    }
+    
+    func presentLoading() {
+        view?.displayLoading()
+    }
+    
+    func presentStopLoading() {
+        view?.displayStopLoading()
     }
 }
