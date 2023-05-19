@@ -43,7 +43,7 @@ class HTTPGetManager: HTTPGetProtocol {
                 let responseObject = try decoder.decode(T.self, from: data)
                 completion(.success(responseObject))
             } catch {
-                completion(.failure(HTTPError.unexpected))
+                completion(.failure(HTTPError.invalidDecodification))
             }
         }
         
