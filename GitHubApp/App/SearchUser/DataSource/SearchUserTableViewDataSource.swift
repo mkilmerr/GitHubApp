@@ -20,12 +20,12 @@ class SearchUserTableViewDataSource: NSObject, UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return view.users?.user.count ?? 0
+        return view.users?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchUserTableViewCell.identifier) as? SearchUserTableViewCell else { return UITableViewCell() }
-        guard let user = view.users?.user[indexPath.section] else { return UITableViewCell() }
+        guard let user = view.users?[indexPath.section] else { return UITableViewCell() }
         cell.configure(with: user)
         return cell
     }

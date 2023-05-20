@@ -36,5 +36,15 @@ extension BaseViewController {
             self?.indicator.stopAnimating()
         }
     }
+    public func showAlert(title: String = "Ixi......",
+                          message: String = "Error inesperado") {
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: UIAlertController.Style.alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+    }
 }
 

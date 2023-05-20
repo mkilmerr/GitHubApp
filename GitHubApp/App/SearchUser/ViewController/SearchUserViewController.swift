@@ -8,10 +8,8 @@
 import UIKit
 
 protocol SearchUserDisplayProtocol: AnyObject {
-    func displayUserList(with userCard: UserCard)
+    func displayUserList(with user: [User])
     func displayErrorUserList(with error: Error)
-    func displayFollowers(_ amount: Int)
-    func displayFollowing(_ amount: Int)
     func displayLoading()
     func displayStopLoading()
 }
@@ -25,17 +23,18 @@ class SearchUserViewController: BaseViewController {
         customView.delegate = self
         view = customView
         interactor?.loadUsers()
+        showAlert()
     }
 }
 
 // MARK: - SearchUserDisplayProtocol
 extension SearchUserViewController: SearchUserDisplayProtocol {
-    func displayUserList(with users: UserCard) {
+    func displayUserList(with users: [User]) {
         customView.users = users
     }
     
     func displayErrorUserList(with error: Error) {
-        
+        showAlert(message: error.localizedDescription)
     }
     
     func displayStopLoading() {
@@ -44,14 +43,6 @@ extension SearchUserViewController: SearchUserDisplayProtocol {
     
     func displayLoading() {
         startAnimating()
-    }
-    
-    func displayFollowers(_ amount: Int) {
-        
-    }
-    
-    func displayFollowing(_ amount: Int) {
-        
     }
 }
 // MARK: - SearchUserViewDelegate

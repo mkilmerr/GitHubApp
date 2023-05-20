@@ -30,7 +30,7 @@ class HTTPGetManager: HTTPGetProtocol {
         
         let headers = [
           "Accept": "application/vnd.github+json",
-          "Authorization": "Bearer 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"
+          "Authorization": "Bearer "
         ]
 
         let request = NSMutableURLRequest(url: url,

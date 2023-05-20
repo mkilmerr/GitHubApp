@@ -8,13 +8,9 @@
 import Foundation
 
 protocol SearchUserPresenterProtocol {
-    func presentUserList(_ users: [User], userInformations: [UserInformations])
-    func presentUserBySeach(user: User, userInformations: UserInformations)
+    func presentUserList(_ users: [User])
+    func presentUserBySeach(user: User)
     func presentErrorUserList(_ error: Error)
-    func presentUserFollowers(_ users: [User])
-    func presentErrorUserFollowers(_ error: Error)
-    func presentUserFollowing(_ users: [User])
-    func presentErrorUserFollowing(_ error: Error)
     func presentLoading()
     func presentStopLoading()
 }
@@ -27,9 +23,12 @@ class SearchUserPresenter: SearchUserPresenterProtocol {
         self.view = view
     }
     
-    func presentUserList(_ users: [User], userInformations: [UserInformations]) {
-        let userCard = UserCard(user: users, informations: userInformations)
-        view?.displayUserList(with: userCard)
+    func presentUserList(_ users: [User]) {
+        view?.displayUserList(with: users)
+    }
+    
+    func presentUserBySeach(user: User) {
+        view?.displayUserList(with: [user])
     }
     
     func presentErrorUserList(_ error: Error) {
@@ -42,26 +41,5 @@ class SearchUserPresenter: SearchUserPresenterProtocol {
     
     func presentStopLoading() {
         view?.displayStopLoading()
-    }
-    
-    func presentUserFollowers(_ users: [User]) {
-        view?.displayFollowers(users.count)
-    }
-    
-    func presentErrorUserFollowers(_ error: Error) {
-        
-    }
-    
-    func presentUserFollowing(_ users: [User]) {
-        view?.displayFollowing(users.count)
-    }
-    
-    func presentErrorUserFollowing(_ error: Error) {
-        
-    }
-    
-    func presentUserBySeach(user: User, userInformations: UserInformations) {
-        let userCard = UserCard(user: [user], informations: [userInformations])
-        view?.displayUserList(with: userCard)
     }
 }

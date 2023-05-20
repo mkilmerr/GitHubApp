@@ -15,7 +15,7 @@ class SearchUserView: UIView {
     // MARK: - Properties
     weak var delegate: SearchUserViewDelegate?
     
-    var users: UserCard? {
+    var users: [User]? {
         didSet {
             reloadTableView()
         }
@@ -36,6 +36,8 @@ class SearchUserView: UIView {
         textField.layer.borderWidth = 2
         textField.layer.borderColor = UIColor.customGray?.cgColor
         textField.delegate = searchTextFieldDelegate
+        textField.autocapitalizationType = .none
+        textField.autocorrectionType = .no
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()

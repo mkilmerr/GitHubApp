@@ -29,35 +29,6 @@ class SearchUserTableViewCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    private lazy var followersImageView: UIImageView = {
-       let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [followersLabel, followingLabel])
-        stackView.spacing = 5
-        stackView.axis = .horizontal
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
-    }()
-    private lazy var followersLabel: UILabel = {
-        let label = UILabel()
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
-        label.textColor = UIColor.accentColor
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    private lazy var followingLabel: UILabel = {
-        let label = UILabel()
-        label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 0
-        label.textColor = UIColor.accentColor
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configureView()
@@ -73,8 +44,6 @@ extension SearchUserTableViewCell {
     public func configure(with user: User?) {
         guard let user = user else { return }
         loginNameLabel.text = user.login
-//        followingLabel.text = "\(informations.following) amigos"
-//        followersLabel.text = "\(informations.followers) seguidores"
         userImageView.loadImage(with: user.avatarURL)
     }
 }
@@ -86,8 +55,6 @@ extension SearchUserTableViewCell: ViewConfiguration {
         backgroundColor = UIColor.customGray
         addSubview(userImageView)
         addSubview(loginNameLabel)
-       addSubview(stackView)
-       
     }
     
     func setupConstraints() {
@@ -100,10 +67,6 @@ extension SearchUserTableViewCell: ViewConfiguration {
         NSLayoutConstraint.activate([
             loginNameLabel.centerYAnchor.constraint(equalTo: userImageView.centerYAnchor),
             loginNameLabel.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 10)
-        ])
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: loginNameLabel.bottomAnchor, constant: 10),
-            stackView.leadingAnchor.constraint(equalTo: loginNameLabel.leadingAnchor)
         ])
     }
     
