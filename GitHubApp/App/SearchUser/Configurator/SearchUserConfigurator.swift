@@ -18,7 +18,9 @@ final class SearchUserConfigurator: SearchUserFactory {
         let service = SearchUserService()
         let interactor = SearchUserInteractor(presenter: presenter,
                                               service: service)
+        let router = SearchUserRouter(viewController: viewController)
         viewController.interactor = interactor
+        viewController.router = router
         return viewController
     }
 }

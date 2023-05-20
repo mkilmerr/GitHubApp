@@ -17,6 +17,8 @@ protocol SearchUserDisplayProtocol: AnyObject {
 
 class SearchUserViewController: BaseViewController {
     var interactor: SearchUserInteractor?
+    var router: SearchUserRouter?
+    
     private let customView = SearchUserView()
     
     override func viewDidLoad() {
@@ -49,10 +51,8 @@ extension SearchUserViewController: SearchUserDisplayProtocol {
 }
 // MARK: - SearchUserViewDelegate
 extension SearchUserViewController: SearchUserViewDelegate {
-    func cellDidSelect() {
-        let viewController = UIViewController()
-        viewController.view.backgroundColor = .yellow
-        navigationController?.pushViewController(viewController, animated: true)
+    func cellDidSelect(with user: User) {
+        router?.goToDetail(with: user)
     }
     
     func searchUser(with name: String) {

@@ -15,7 +15,8 @@ class SearchUserTableViewDelegate: NSObject, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        view.delegate?.cellDidSelect()
+        guard let user = view.users?[indexPath.section] else { return }
+        view.delegate?.cellDidSelect(with: user)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

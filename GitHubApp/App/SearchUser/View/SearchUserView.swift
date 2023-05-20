@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SearchUserViewDelegate: AnyObject {
-    func cellDidSelect()
+    func cellDidSelect(with user: User)
     func searchUser(with name: String)
 }
 class SearchUserView: UIView {

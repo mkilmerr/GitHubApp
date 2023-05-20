@@ -30,6 +30,13 @@
 		5D005FE12A18F8E300ABA6D4 /* ImageView+RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D005FE02A18F8E300ABA6D4 /* ImageView+RemoteImage.swift */; };
 		5D005FE42A18FC6600ABA6D4 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D005FE32A18FC6600ABA6D4 /* UIColor+Extensions.swift */; };
 		5D005FE62A1902FD00ABA6D4 /* UserInformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D005FE52A1902FD00ABA6D4 /* UserInformations.swift */; };
+		5DC69D3C2A195A740003B688 /* UserDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC69D3B2A195A740003B688 /* UserDetailViewController.swift */; };
+		5DC69D422A195B0E0003B688 /* SearchUserRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC69D412A195B0E0003B688 /* SearchUserRouter.swift */; };
+		5DC69D442A195CCA0003B688 /* UserDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC69D432A195CCA0003B688 /* UserDetailService.swift */; };
+		5DC69D462A195F470003B688 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC69D452A195F470003B688 /* UserDetailView.swift */; };
+		5DC69D482A19608F0003B688 /* UserDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC69D472A19608F0003B688 /* UserDetailInteractor.swift */; };
+		5DC69D4A2A1961710003B688 /* UserDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC69D492A1961710003B688 /* UserDetailPresenter.swift */; };
+		5DC69D4D2A1963120003B688 /* UserDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC69D4C2A1963120003B688 /* UserDetailConfigurator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +65,13 @@
 		5D005FE02A18F8E300ABA6D4 /* ImageView+RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+RemoteImage.swift"; sourceTree = "<group>"; };
 		5D005FE32A18FC6600ABA6D4 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		5D005FE52A1902FD00ABA6D4 /* UserInformations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformations.swift; sourceTree = "<group>"; };
+		5DC69D3B2A195A740003B688 /* UserDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewController.swift; sourceTree = "<group>"; };
+		5DC69D412A195B0E0003B688 /* SearchUserRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserRouter.swift; sourceTree = "<group>"; };
+		5DC69D432A195CCA0003B688 /* UserDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailService.swift; sourceTree = "<group>"; };
+		5DC69D452A195F470003B688 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
+		5DC69D472A19608F0003B688 /* UserDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailInteractor.swift; sourceTree = "<group>"; };
+		5DC69D492A1961710003B688 /* UserDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailPresenter.swift; sourceTree = "<group>"; };
+		5DC69D4C2A1963120003B688 /* UserDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailConfigurator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +118,7 @@
 			children = (
 				5D005FB42A17E23600ABA6D4 /* Utils */,
 				5D005FAD2A17E16000ABA6D4 /* SearchUser */,
+				5DC69D382A195A450003B688 /* UserDetail */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -120,6 +135,7 @@
 		5D005FAD2A17E16000ABA6D4 /* SearchUser */ = {
 			isa = PBXGroup;
 			children = (
+				5DC69D402A195AFE0003B688 /* Router */,
 				5D005FD22A1808E800ABA6D4 /* Configurator */,
 				5D005FC92A17F75A00ABA6D4 /* Model */,
 				5D005FBB2A17E75800ABA6D4 /* Delegate */,
@@ -270,6 +286,75 @@
 			path = Color;
 			sourceTree = "<group>";
 		};
+		5DC69D382A195A450003B688 /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				5DC69D4B2A1962ED0003B688 /* Configurator */,
+				5DC69D3A2A195A610003B688 /* View */,
+				5DC69D392A195A590003B688 /* ViewController */,
+				5DC69D3D2A195A9D0003B688 /* Interactor */,
+				5DC69D3E2A195AAF0003B688 /* Presenter */,
+				5DC69D3F2A195ABF0003B688 /* Service */,
+			);
+			path = UserDetail;
+			sourceTree = "<group>";
+		};
+		5DC69D392A195A590003B688 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5DC69D3B2A195A740003B688 /* UserDetailViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5DC69D3A2A195A610003B688 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5DC69D452A195F470003B688 /* UserDetailView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5DC69D3D2A195A9D0003B688 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				5DC69D472A19608F0003B688 /* UserDetailInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		5DC69D3E2A195AAF0003B688 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5DC69D492A1961710003B688 /* UserDetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		5DC69D3F2A195ABF0003B688 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				5DC69D432A195CCA0003B688 /* UserDetailService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		5DC69D402A195AFE0003B688 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				5DC69D412A195B0E0003B688 /* SearchUserRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		5DC69D4B2A1962ED0003B688 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				5DC69D4C2A1963120003B688 /* UserDetailConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -343,18 +428,25 @@
 				5D005FB12A17E1DE00ABA6D4 /* SearchUserViewController.swift in Sources */,
 				5D005FD62A180BEF00ABA6D4 /* SearchUserTableViewCell.swift in Sources */,
 				5D005FC32A17F11E00ABA6D4 /* HTTPError.swift in Sources */,
+				5DC69D462A195F470003B688 /* UserDetailView.swift in Sources */,
 				5D005FDB2A1811A800ABA6D4 /* SearchUserTableViewDataSource.swift in Sources */,
 				5D005FB92A17E65C00ABA6D4 /* SearchUser+ViewMetrics.swift in Sources */,
+				5DC69D442A195CCA0003B688 /* UserDetailService.swift in Sources */,
 				5D005FDE2A1835C600ABA6D4 /* BaseViewController.swift in Sources */,
 				5D005FBD2A17E78B00ABA6D4 /* SearchUserTextFieldDelegate.swift in Sources */,
 				5D005FE12A18F8E300ABA6D4 /* ImageView+RemoteImage.swift in Sources */,
 				5D005FB32A17E1F500ABA6D4 /* SearchUserView.swift in Sources */,
 				5D005FC82A17F51300ABA6D4 /* SearchUserService.swift in Sources */,
+				5DC69D4D2A1963120003B688 /* UserDetailConfigurator.swift in Sources */,
+				5DC69D482A19608F0003B688 /* UserDetailInteractor.swift in Sources */,
+				5DC69D3C2A195A740003B688 /* UserDetailViewController.swift in Sources */,
 				5D005FB72A17E24B00ABA6D4 /* ViewConfiguration.swift in Sources */,
+				5DC69D4A2A1961710003B688 /* UserDetailPresenter.swift in Sources */,
 				5D005FE62A1902FD00ABA6D4 /* UserInformations.swift in Sources */,
 				5D005FE42A18FC6600ABA6D4 /* UIColor+Extensions.swift in Sources */,
 				5D005F982A17D74800ABA6D4 /* AppDelegate.swift in Sources */,
 				5D005F9A2A17D74800ABA6D4 /* SceneDelegate.swift in Sources */,
+				5DC69D422A195B0E0003B688 /* SearchUserRouter.swift in Sources */,
 				5D005FD12A18032100ABA6D4 /* SearchUserPresenter.swift in Sources */,
 				5D005FCE2A18000200ABA6D4 /* SearchUserInteractor.swift in Sources */,
 				5D005FD42A18096700ABA6D4 /* SearchUserConfigurator.swift in Sources */,
