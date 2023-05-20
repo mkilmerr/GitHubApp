@@ -32,6 +32,8 @@ class SearchUserView: UIView {
         let textField = UITextField()
         textField.placeholder = "Digite..."
         textField.borderStyle = .roundedRect
+        textField.layer.borderWidth = 2
+        textField.layer.borderColor = UIColor.customGray?.cgColor
         textField.delegate = searchTextFieldDelegate
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -42,8 +44,6 @@ class SearchUserView: UIView {
                            forCellReuseIdentifier: SearchUserTableViewCell.identifier)
         tableView.delegate = searchTableViewDelegate
         tableView.dataSource = searchTableViewDataSource
-        tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
-
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -94,6 +94,7 @@ extension SearchUserView {
 // MARK: - ViewConfiguration
 extension SearchUserView: ViewConfiguration {
     func setupView() {
+        backgroundColor = UIColor.accentColor
         addSubview(searchTextField)
         addSubview(usersTableView)
     }
@@ -120,10 +121,17 @@ extension SearchUserView: ViewConfiguration {
         ])
         
         NSLayoutConstraint.activate([
-            usersTableView.topAnchor.constraint(equalTo: searchTextField.bottomAnchor,
+            usersTableView
+                .topAnchor
+                .constraint(equalTo: searchTextField.bottomAnchor,
                                                 constant: 30),
-            usersTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            trailingAnchor.constraint(equalTo: usersTableView.trailingAnchor, constant: 16),
+            usersTableView
+                .leadingAnchor
+                .constraint(equalTo: leadingAnchor,
+                            constant: 16),
+            trailingAnchor
+                .constraint(equalTo: usersTableView.trailingAnchor,
+                            constant: 16),
             usersTableView.bottomAnchor.constraint(equalTo: bottomAnchor)
             
         ])

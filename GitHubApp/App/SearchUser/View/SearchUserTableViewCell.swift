@@ -24,6 +24,8 @@ class SearchUserTableViewCell: UITableViewCell {
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
         label.text = "login name"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = UIColor.accentColor
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -64,7 +66,7 @@ extension SearchUserTableViewCell: ViewConfiguration {
     func setupView() {
         layer.cornerRadius = 16
         selectionStyle = .none
-        backgroundColor = .yellow
+        backgroundColor = UIColor.customGray
         addSubview(userImageView)
         addSubview(loginNameLabel)
        

@@ -28,6 +28,7 @@
 		5D005FDB2A1811A800ABA6D4 /* SearchUserTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D005FDA2A1811A800ABA6D4 /* SearchUserTableViewDataSource.swift */; };
 		5D005FDE2A1835C600ABA6D4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D005FDD2A1835C600ABA6D4 /* BaseViewController.swift */; };
 		5D005FE12A18F8E300ABA6D4 /* ImageView+RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D005FE02A18F8E300ABA6D4 /* ImageView+RemoteImage.swift */; };
+		5D005FE42A18FC6600ABA6D4 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D005FE32A18FC6600ABA6D4 /* UIColor+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		5D005FDA2A1811A800ABA6D4 /* SearchUserTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserTableViewDataSource.swift; sourceTree = "<group>"; };
 		5D005FDD2A1835C600ABA6D4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5D005FE02A18F8E300ABA6D4 /* ImageView+RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+RemoteImage.swift"; sourceTree = "<group>"; };
+		5D005FE32A18FC6600ABA6D4 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 		5D005FB42A17E23600ABA6D4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5D005FE22A18FC5600ABA6D4 /* Color */,
 				5D005FDF2A18F8CF00ABA6D4 /* ImageView */,
 				5D005FDC2A1835B300ABA6D4 /* ViewController */,
 				5D005FBE2A17F0ED00ABA6D4 /* Network */,
@@ -256,6 +259,14 @@
 			path = ImageView;
 			sourceTree = "<group>";
 		};
+		5D005FE22A18FC5600ABA6D4 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				5D005FE32A18FC6600ABA6D4 /* UIColor+Extensions.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -337,6 +348,7 @@
 				5D005FB32A17E1F500ABA6D4 /* SearchUserView.swift in Sources */,
 				5D005FC82A17F51300ABA6D4 /* SearchUserService.swift in Sources */,
 				5D005FB72A17E24B00ABA6D4 /* ViewConfiguration.swift in Sources */,
+				5D005FE42A18FC6600ABA6D4 /* UIColor+Extensions.swift in Sources */,
 				5D005F982A17D74800ABA6D4 /* AppDelegate.swift in Sources */,
 				5D005F9A2A17D74800ABA6D4 /* SceneDelegate.swift in Sources */,
 				5D005FD12A18032100ABA6D4 /* SearchUserPresenter.swift in Sources */,
