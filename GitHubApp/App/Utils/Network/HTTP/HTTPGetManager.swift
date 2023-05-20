@@ -35,7 +35,7 @@ class HTTPGetManager: HTTPGetProtocol {
 
         let request = NSMutableURLRequest(url: url,
                                           cachePolicy: .reloadIgnoringLocalCacheData,
-                                          timeoutInterval: 20.0)
+                                          timeoutInterval: 60.0)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
        

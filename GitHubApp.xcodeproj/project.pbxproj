@@ -37,6 +37,11 @@
 		5DC69D482A19608F0003B688 /* UserDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC69D472A19608F0003B688 /* UserDetailInteractor.swift */; };
 		5DC69D4A2A1961710003B688 /* UserDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC69D492A1961710003B688 /* UserDetailPresenter.swift */; };
 		5DC69D4D2A1963120003B688 /* UserDetailConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC69D4C2A1963120003B688 /* UserDetailConfigurator.swift */; };
+		5DC69D4F2A1970B20003B688 /* UserDetailRepositoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC69D4E2A1970B20003B688 /* UserDetailRepositoryCollectionViewCell.swift */; };
+		5DC69D522A1971C70003B688 /* Repos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC69D512A1971C70003B688 /* Repos.swift */; };
+		5DC69D542A19723A0003B688 /* License.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC69D532A19723A0003B688 /* License.swift */; };
+		5DC69D582A197D9C0003B688 /* UserDetailCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC69D572A197D9C0003B688 /* UserDetailCollectionViewDataSource.swift */; };
+		5DC69D5A2A197E590003B688 /* UserDetailCollectionViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC69D592A197E590003B688 /* UserDetailCollectionViewDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +77,11 @@
 		5DC69D472A19608F0003B688 /* UserDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailInteractor.swift; sourceTree = "<group>"; };
 		5DC69D492A1961710003B688 /* UserDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailPresenter.swift; sourceTree = "<group>"; };
 		5DC69D4C2A1963120003B688 /* UserDetailConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailConfigurator.swift; sourceTree = "<group>"; };
+		5DC69D4E2A1970B20003B688 /* UserDetailRepositoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailRepositoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		5DC69D512A1971C70003B688 /* Repos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repos.swift; sourceTree = "<group>"; };
+		5DC69D532A19723A0003B688 /* License.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = License.swift; sourceTree = "<group>"; };
+		5DC69D572A197D9C0003B688 /* UserDetailCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailCollectionViewDataSource.swift; sourceTree = "<group>"; };
+		5DC69D592A197E590003B688 /* UserDetailCollectionViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailCollectionViewDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +299,9 @@
 		5DC69D382A195A450003B688 /* UserDetail */ = {
 			isa = PBXGroup;
 			children = (
+				5DC69D562A197D680003B688 /* DataSource */,
+				5DC69D552A197D630003B688 /* Delegate */,
+				5DC69D502A1971B90003B688 /* Model */,
 				5DC69D4B2A1962ED0003B688 /* Configurator */,
 				5DC69D3A2A195A610003B688 /* View */,
 				5DC69D392A195A590003B688 /* ViewController */,
@@ -311,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				5DC69D452A195F470003B688 /* UserDetailView.swift */,
+				5DC69D4E2A1970B20003B688 /* UserDetailRepositoryCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -353,6 +367,31 @@
 				5DC69D4C2A1963120003B688 /* UserDetailConfigurator.swift */,
 			);
 			path = Configurator;
+			sourceTree = "<group>";
+		};
+		5DC69D502A1971B90003B688 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5DC69D512A1971C70003B688 /* Repos.swift */,
+				5DC69D532A19723A0003B688 /* License.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5DC69D552A197D630003B688 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				5DC69D592A197E590003B688 /* UserDetailCollectionViewDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		5DC69D562A197D680003B688 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				5DC69D572A197D9C0003B688 /* UserDetailCollectionViewDataSource.swift */,
+			);
+			path = DataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,6 +471,7 @@
 				5D005FDB2A1811A800ABA6D4 /* SearchUserTableViewDataSource.swift in Sources */,
 				5D005FB92A17E65C00ABA6D4 /* SearchUser+ViewMetrics.swift in Sources */,
 				5DC69D442A195CCA0003B688 /* UserDetailService.swift in Sources */,
+				5DC69D582A197D9C0003B688 /* UserDetailCollectionViewDataSource.swift in Sources */,
 				5D005FDE2A1835C600ABA6D4 /* BaseViewController.swift in Sources */,
 				5D005FBD2A17E78B00ABA6D4 /* SearchUserTextFieldDelegate.swift in Sources */,
 				5D005FE12A18F8E300ABA6D4 /* ImageView+RemoteImage.swift in Sources */,
@@ -439,13 +479,17 @@
 				5D005FC82A17F51300ABA6D4 /* SearchUserService.swift in Sources */,
 				5DC69D4D2A1963120003B688 /* UserDetailConfigurator.swift in Sources */,
 				5DC69D482A19608F0003B688 /* UserDetailInteractor.swift in Sources */,
+				5DC69D4F2A1970B20003B688 /* UserDetailRepositoryCollectionViewCell.swift in Sources */,
 				5DC69D3C2A195A740003B688 /* UserDetailViewController.swift in Sources */,
 				5D005FB72A17E24B00ABA6D4 /* ViewConfiguration.swift in Sources */,
+				5DC69D522A1971C70003B688 /* Repos.swift in Sources */,
 				5DC69D4A2A1961710003B688 /* UserDetailPresenter.swift in Sources */,
 				5D005FE62A1902FD00ABA6D4 /* UserInformations.swift in Sources */,
 				5D005FE42A18FC6600ABA6D4 /* UIColor+Extensions.swift in Sources */,
 				5D005F982A17D74800ABA6D4 /* AppDelegate.swift in Sources */,
+				5DC69D5A2A197E590003B688 /* UserDetailCollectionViewDelegate.swift in Sources */,
 				5D005F9A2A17D74800ABA6D4 /* SceneDelegate.swift in Sources */,
+				5DC69D542A19723A0003B688 /* License.swift in Sources */,
 				5DC69D422A195B0E0003B688 /* SearchUserRouter.swift in Sources */,
 				5D005FD12A18032100ABA6D4 /* SearchUserPresenter.swift in Sources */,
 				5D005FCE2A18000200ABA6D4 /* SearchUserInteractor.swift in Sources */,

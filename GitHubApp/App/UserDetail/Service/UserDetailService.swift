@@ -10,6 +10,7 @@ import Foundation
 protocol UserDetailServiceProtocol: AnyObject {
     var baseURL: String { get set }
     var users: String { get set }
+    var repos: String { get set }
     var followers: String { get set }
     var following: String { get set }
     var httpGetManager: HTTPGetManager? { get set }
@@ -18,6 +19,8 @@ protocol UserDetailServiceProtocol: AnyObject {
                        completion: @escaping (Result<[User], Error>) -> Void)
     func loadFollowing(loginName: String,
                        completion: @escaping (Result<[User], Error>) -> Void)
+    func loadRepositories(loginName: String,
+                          completion: @escaping (Result<[Repos], Error>) -> Void)
 }
 
 class UserDetailService: UserDetailServiceProtocol {
@@ -25,6 +28,7 @@ class UserDetailService: UserDetailServiceProtocol {
     var users: String = "/users/"
     var followers: String = "/followers"
     var following: String = "/following"
+    var repos: String = "/repos"
     var httpGetManager: HTTPGetManager?
     
     func loadFollowers(loginName: String,
@@ -53,4 +57,15 @@ class UserDetailService: UserDetailServiceProtocol {
         }
     }
     
+    func loadRepositories(loginName: String, completion: @escaping (Result<[Repos], Error>) -> Void) {
+        httpGetManager = HTTPGetManager(url: "\(baseURL)\(users)\(loginName)\(repos)")
+        httpGetManager?.request { (result: Result<[Repos], Error>) in
+            switch result {
+            case .success(let data) :
+                completion(.success(data))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
 }

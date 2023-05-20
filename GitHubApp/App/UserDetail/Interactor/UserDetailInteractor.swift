@@ -10,6 +10,7 @@ import Foundation
 protocol UserDetailInteractorProtocol: AnyObject {
     func loadFollowers()
     func loadFollowing()
+    func loadRepositories()
 }
 
 class UserDetailInteractor: UserDetailInteractorProtocol {
@@ -29,7 +30,8 @@ class UserDetailInteractor: UserDetailInteractorProtocol {
             switch result {
             case .success(let users):
                 self?.presenter.presentFollowers(users)
-            case .failure(let error) : break
+            case .failure(_) :
+                self?.presenter.presentAlert()
             }
         }
     }
@@ -39,7 +41,19 @@ class UserDetailInteractor: UserDetailInteractorProtocol {
             switch result {
             case .success(let users):
                 self?.presenter.presentFollowing(users)
-            case .failure(let error) : break
+            case .failure(_) :
+                self?.presenter.presentAlert()
+            }
+        }
+    }
+    
+    func loadRepositories() {
+        service.loadRepositories(loginName: user.login) { [weak self] result in
+            switch result {
+            case .success(let repos):
+                self?.presenter.presentRepos(repos)
+            case .failure(_) :
+                self?.presenter.presentAlert()
             }
         }
     }

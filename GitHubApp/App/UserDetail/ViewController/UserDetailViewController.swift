@@ -10,6 +10,8 @@ import UIKit
 protocol UserDetailDisplayProtocol: AnyObject {
     func displayFollowing(with amount: Int)
     func displayFollowers(with amount: Int)
+    func displayRepos(_ repos: [Repos])
+    func displayShowAlert()
 }
 
 class UserDetailViewController: BaseViewController {
@@ -22,6 +24,7 @@ class UserDetailViewController: BaseViewController {
         configureView()
         interactor?.loadFollowers()
         interactor?.loadFollowing()
+        interactor?.loadRepositories()
     }
 }
 // MARK: - Configure View
@@ -40,5 +43,13 @@ extension UserDetailViewController: UserDetailDisplayProtocol {
     
     func displayFollowers(with amount: Int) {
         customView.setFollowersAmount(amount)
+    }
+    
+    func displayRepos(_ repos: [Repos]) {
+        customView.repos = repos
+    }
+    
+    func displayShowAlert() {
+        showAlert()
     }
 }
