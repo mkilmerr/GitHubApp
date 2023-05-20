@@ -15,18 +15,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon_github" translatesAutoresizingMaskIntoConstraints="NO" id="BJl-JZ-9hp">
-                                <rect key="frame" x="76" y="362" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_github" translatesAutoresizingMaskIntoConstraints="NO" id="BJl-JZ-9hp">
+                                <rect key="frame" x="65.666666666666686" y="371" width="262" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="262" id="els-19-HKU"/>
+                                    <constraint firstAttribute="height" constant="110" id="xle-aQ-rqe"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BJl-JZ-9hp" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="VRE-kN-4NU"/>
+                            <constraint firstItem="BJl-JZ-9hp" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="XHo-qX-a4m"/>
+                            <constraint firstItem="BJl-JZ-9hp" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="awM-Kb-gHB"/>
+                            <constraint firstItem="BJl-JZ-9hp" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ifw-Kg-anH"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
     <resources>
