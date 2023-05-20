@@ -14,6 +14,8 @@ class SearchUserTableViewCell: UITableViewCell {
        let imageView = UIImageView()
         imageView.image = UIImage(named: "icon_github")
         imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = 16
+        imageView.layer.masksToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
