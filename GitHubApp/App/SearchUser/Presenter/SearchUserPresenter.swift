@@ -8,7 +8,7 @@
 import Foundation
 
 protocol SearchUserPresenterProtocol {
-    func presentUserList(_ users: [User])
+    func presentUserList(_ users: [User], userInformations: [UserInformations])
     func presentErrorUserList(_ error: Error)
     func presentUserFollowers(_ users: [User])
     func presentErrorUserFollowers(_ error: Error)
@@ -26,8 +26,9 @@ class SearchUserPresenter: SearchUserPresenterProtocol {
         self.view = view
     }
     
-    func presentUserList(_ users: [User]) {
-        view?.displayUserList(with: users)
+    func presentUserList(_ users: [User], userInformations: [UserInformations]) {
+        let userCard = UserCard(user: users, informations: userInformations)
+        view?.displayUserList(with: userCard)
     }
     
     func presentErrorUserList(_ error: Error) {

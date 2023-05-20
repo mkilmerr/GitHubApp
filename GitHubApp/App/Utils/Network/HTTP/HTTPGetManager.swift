@@ -28,13 +28,10 @@ class HTTPGetManager: HTTPGetProtocol {
             return
         }
         
-        let headers = ["Authorization": "Basic bWtpbG1lcnI6"]
-        
         let request = NSMutableURLRequest(url: url,
-                                          cachePolicy: .useProtocolCachePolicy,
-                                          timeoutInterval: 10.0)
+                                                cachePolicy: .useProtocolCachePolicy,
+                                            timeoutInterval: 10.0)
         request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
         
         let session = URLSession.shared
        

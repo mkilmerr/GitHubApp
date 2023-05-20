@@ -25,12 +25,34 @@ class SearchUserInteractor: SearchUserInteractorProtocol {
     }
     
     func loadUsers() {
+        var userInfomations: [UserInformations] = []
         presenter.presentLoading()
         service.loadUsersDefaultList { [weak self] result in
             self?.presenter.presentStopLoading()
             switch result {
             case .success(let users):
-                self?.presenter.presentUserList(users)
+                users.forEach { user in
+                    self?.service.loadFollowers(loginName: user.login) { [weak self] result in
+                        self?.presenter.presentStopLoading()
+                        switch result {
+                        case .success(let followers):
+                            self?.service.loadFollowing(loginName: user.login) { [weak self] result in
+                                switch result {
+                                case .success(let following):
+                                    let userInfo = UserInformations(followers: followers.count, following: following.count)
+                                    userInfomations.append(userInfo)
+                                    self?.presenter.presentUserList(users,
+                                                                    userInformations: userInfomations)
+                                  
+                                case .failure(let error): break
+                                    self?.presenter.presentErrorUserFollowers(error)
+                                }
+                            }
+                        case .failure(let error): break
+                            self?.presenter.presentErrorUserFollowing(error)
+                        }
+                    }
+                }
             case .failure(let error):
                 self?.presenter.presentErrorUserList(error)
             }

@@ -11,3 +11,8 @@ struct UserInformations {
     let followers: Int
     let following: Int
 }
+
+struct UserCard {
+    let user: [User]
+    let informations: [UserInformations]
+}

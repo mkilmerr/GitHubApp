@@ -14,7 +14,7 @@ class SearchUserView: UIView {
     // MARK: - Properties
     weak var delegate: SearchUserViewDelegate?
     
-    var users: [User]? {
+    var users: UserCard? {
         didSet {
             reloadTableView()
         }

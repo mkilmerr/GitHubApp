@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SearchUserDisplayProtocol: AnyObject {
-    func displayUserList(with users: [User])
+    func displayUserList(with userCard: UserCard)
     func displayErrorUserList(with error: Error)
     func displayFollowers(_ amount: Int)
     func displayFollowing(_ amount: Int)
@@ -30,7 +30,7 @@ class SearchUserViewController: BaseViewController {
 
 // MARK: - SearchUserDisplayProtocol
 extension SearchUserViewController: SearchUserDisplayProtocol {
-    func displayUserList(with users: [User]) {
+    func displayUserList(with users: UserCard) {
         customView.users = users
     }
     

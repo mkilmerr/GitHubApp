@@ -34,11 +34,26 @@ class SearchUserTableViewCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [followersLabel, followingLabel])
+        stackView.spacing = 5
+        stackView.axis = .horizontal
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
     private lazy var followersLabel: UILabel = {
         let label = UILabel()
         label.lineBreakMode = .byWordWrapping
         label.numberOfLines = 0
-        label.text = "45 seguidores"
+        label.textColor = UIColor.accentColor
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    private lazy var followingLabel: UILabel = {
+        let label = UILabel()
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
+        label.textColor = UIColor.accentColor
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -55,9 +70,12 @@ class SearchUserTableViewCell: UITableViewCell {
 }
 // MARK: - Configure Cell
 extension SearchUserTableViewCell {
-    public func configure(with user: User?) {
+    public func configure(with user: User?,
+                          informations: UserInformations) {
         guard let user = user else { return }
         loginNameLabel.text = user.login
+        followingLabel.text = "\(informations.following) amigos"
+        followersLabel.text = "\(informations.followers) seguidores"
         userImageView.loadImage(with: user.avatarURL)
     }
 }
@@ -69,6 +87,7 @@ extension SearchUserTableViewCell: ViewConfiguration {
         backgroundColor = UIColor.customGray
         addSubview(userImageView)
         addSubview(loginNameLabel)
+       addSubview(stackView)
        
     }
     
@@ -82,6 +101,10 @@ extension SearchUserTableViewCell: ViewConfiguration {
         NSLayoutConstraint.activate([
             loginNameLabel.centerYAnchor.constraint(equalTo: userImageView.centerYAnchor),
             loginNameLabel.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 10)
+        ])
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: loginNameLabel.bottomAnchor, constant: 10),
+            stackView.leadingAnchor.constraint(equalTo: loginNameLabel.leadingAnchor)
         ])
     }
     
