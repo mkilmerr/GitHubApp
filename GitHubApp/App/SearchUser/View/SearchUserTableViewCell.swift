@@ -54,6 +54,7 @@ extension SearchUserTableViewCell {
     public func configure(with user: User?) {
         guard let user = user else { return }
         loginNameLabel.text = user.login
+        userImageView.loadImage(with: user.avatarURL)
     }
 }
 // MARK: - View Configuration
