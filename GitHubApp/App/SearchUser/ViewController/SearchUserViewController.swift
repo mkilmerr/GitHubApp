@@ -61,4 +61,8 @@ extension SearchUserViewController: SearchUserViewDelegate {
         viewController.view.backgroundColor = .yellow
         navigationController?.pushViewController(viewController, animated: true)
     }
+    
+    func searchUser(with name: String) {
+        interactor?.loadSearchUser(with: name)
+    }
 }

@@ -22,4 +22,14 @@ class SearchUserTextFieldDelegate: NSObject, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    func textField(_ textField: UITextField,
+                   shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        guard let stringRange = Range(range, in: text) else { return true }
+        let updatedText = text.replacingCharacters(in: stringRange, with: string)
+        view.delegate?.searchUser(with: updatedText)
+        return true
+       
+    }
 }

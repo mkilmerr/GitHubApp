@@ -9,6 +9,7 @@ import UIKit
 
 protocol SearchUserViewDelegate: AnyObject {
     func cellDidSelect()
+    func searchUser(with name: String)
 }
 class SearchUserView: UIView {
     // MARK: - Properties

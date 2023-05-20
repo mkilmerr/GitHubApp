@@ -28,11 +28,18 @@ class HTTPGetManager: HTTPGetProtocol {
             return
         }
         
+        let headers = [
+          "Accept": "application/vnd.github+json",
+          "Authorization": "Bearer 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"
+        ]
+
         let request = NSMutableURLRequest(url: url,
-                                                cachePolicy: .useProtocolCachePolicy,
-                                            timeoutInterval: 10.0)
+                                          cachePolicy: .reloadIgnoringLocalCacheData,
+                                          timeoutInterval: 20.0)
         request.httpMethod = "GET"
-        
+        request.allHTTPHeaderFields = headers
+       
+    
         let session = URLSession.shared
        
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in

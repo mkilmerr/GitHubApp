@@ -70,12 +70,11 @@ class SearchUserTableViewCell: UITableViewCell {
 }
 // MARK: - Configure Cell
 extension SearchUserTableViewCell {
-    public func configure(with user: User?,
-                          informations: UserInformations) {
+    public func configure(with user: User?) {
         guard let user = user else { return }
         loginNameLabel.text = user.login
-        followingLabel.text = "\(informations.following) amigos"
-        followersLabel.text = "\(informations.followers) seguidores"
+//        followingLabel.text = "\(informations.following) amigos"
+//        followersLabel.text = "\(informations.followers) seguidores"
         userImageView.loadImage(with: user.avatarURL)
     }
 }
