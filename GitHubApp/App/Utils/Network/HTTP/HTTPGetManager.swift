@@ -20,15 +20,25 @@ class HTTPGetManager: HTTPGetProtocol {
         self.url = url
     }
     
+    
     func request<T>(completion: @escaping (Result<T, Error>) -> Void) where T : Decodable {
-        guard let url = URL(string: url) else {
+        
+        guard let url = NSURL(string: url) as? URL else {
             completion(.failure(HTTPError.invalidURL))
             return
         }
         
-        let session = URLSession.shared
+        let headers = ["Authorization": "Basic bWtpbG1lcnI6"]
         
-        let task = session.dataTask(with: url) { (data, response, error) in
+        let request = NSMutableURLRequest(url: url,
+                                          cachePolicy: .useProtocolCachePolicy,
+                                          timeoutInterval: 10.0)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = headers
+        
+        let session = URLSession.shared
+       
+        let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             if let error = error {
                 completion(.failure(error))
                 return

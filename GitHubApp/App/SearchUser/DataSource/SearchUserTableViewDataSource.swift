@@ -25,9 +25,8 @@ class SearchUserTableViewDataSource: NSObject, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SearchUserTableViewCell.identifier) as? SearchUserTableViewCell else { return UITableViewCell() }
-        let user = view.users?[indexPath.section]
+        guard let user = view.users?[indexPath.section] else { return UITableViewCell() }
         cell.configure(with: user)
         return cell
     }
-    
 }

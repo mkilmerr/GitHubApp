@@ -10,6 +10,8 @@ import UIKit
 protocol SearchUserDisplayProtocol: AnyObject {
     func displayUserList(with users: [User])
     func displayErrorUserList(with error: Error)
+    func displayFollowers(_ amount: Int)
+    func displayFollowing(_ amount: Int)
     func displayLoading()
     func displayStopLoading()
 }
@@ -42,6 +44,14 @@ extension SearchUserViewController: SearchUserDisplayProtocol {
     
     func displayLoading() {
         startAnimating()
+    }
+    
+    func displayFollowers(_ amount: Int) {
+        
+    }
+    
+    func displayFollowing(_ amount: Int) {
+        
     }
 }
 // MARK: - SearchUserViewDelegate
