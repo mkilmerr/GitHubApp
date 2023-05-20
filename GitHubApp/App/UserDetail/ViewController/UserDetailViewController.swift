@@ -19,10 +19,17 @@ class UserDetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = customView
-        customView.setLoginName(interactor?.user.login ?? "")
+        configureView()
         interactor?.loadFollowers()
         interactor?.loadFollowing()
+    }
+}
+// MARK: - Configure View
+extension UserDetailViewController {
+    private func configureView() {
+        view = customView
+        customView.setLoginName(interactor?.user.login ?? "")
+        customView.setUserImage(interactor?.user.avatarURL ?? "")
     }
 }
 // MARK: - UserDetailDisplayProtocol
