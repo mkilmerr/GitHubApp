@@ -10,6 +10,7 @@ import Foundation
 protocol SearchUserPresenterProtocol {
     func presentUserList(_ users: [User])
     func presentUserBySeach(user: User)
+    func presentErrorUserBySearch()
     func presentErrorUserList(_ error: Error)
     func presentLoading()
     func presentStopLoading()
@@ -33,6 +34,10 @@ class SearchUserPresenter: SearchUserPresenterProtocol {
     
     func presentErrorUserList(_ error: Error) {
         view?.displayErrorUserList(with: error)
+    }
+    
+    func presentErrorUserBySearch() {
+        view?.displayErrorUserBySearch()
     }
     
     func presentLoading() {

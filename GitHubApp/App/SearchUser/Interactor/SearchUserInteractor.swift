@@ -44,7 +44,7 @@ class SearchUserInteractor: SearchUserInteractorProtocol {
             case .success(let user):
                 self?.presenter.presentUserBySeach(user: user)
             case .failure(let error):
-                self?.presenter.presentErrorUserList(error)
+                self?.presenter.presentErrorUserBySearch()
             }
         }
     }

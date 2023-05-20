@@ -37,14 +37,18 @@ extension BaseViewController {
         }
     }
     public func showAlert(title: String = "Ixi......",
-                          message: String = "Error inesperado") {
+                          message: String = "Error inesperado",
+                          completion: @escaping () -> Void = {}) {
         let alert = UIAlertController(title: title,
                                       message: message,
                                       preferredStyle: UIAlertController.Style.alert)
         
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-        
-        present(alert, animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { _ in
+            completion()
+        }))
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alert, animated: true, completion: nil)
+        }
     }
 }
 

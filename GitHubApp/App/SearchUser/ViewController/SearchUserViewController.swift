@@ -10,6 +10,7 @@ import UIKit
 protocol SearchUserDisplayProtocol: AnyObject {
     func displayUserList(with user: [User])
     func displayErrorUserList(with error: Error)
+    func displayErrorUserBySearch()
     func displayLoading()
     func displayStopLoading()
 }
@@ -35,7 +36,9 @@ extension SearchUserViewController: SearchUserDisplayProtocol {
     func displayErrorUserList(with error: Error) {
         showAlert(message: error.localizedDescription)
     }
-    
+    func displayErrorUserBySearch() {
+        stopAnimating()
+    }
     func displayStopLoading() {
         stopAnimating()
     }
