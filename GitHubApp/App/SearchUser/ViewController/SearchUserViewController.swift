@@ -23,7 +23,6 @@ class SearchUserViewController: BaseViewController {
         customView.delegate = self
         view = customView
         interactor?.loadUsers()
-        showAlert()
     }
 }
 
