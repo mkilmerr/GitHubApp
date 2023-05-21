@@ -13,8 +13,6 @@ protocol SearchUserInteractorProtocol {
 }
 
 class SearchUserInteractor: SearchUserInteractorProtocol {
-   
-    var userInfomations: [UserInformations] = []
     private var presenter: SearchUserPresenterProtocol
     private var service: SearchUserServiceProtocol
     
@@ -43,7 +41,7 @@ class SearchUserInteractor: SearchUserInteractorProtocol {
             switch result {
             case .success(let user):
                 self?.presenter.presentUserBySeach(user: user)
-            case .failure(let error):
+            case .failure(_):
                 self?.presenter.presentErrorUserBySearch()
             }
         }

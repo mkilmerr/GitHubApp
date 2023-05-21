@@ -28,11 +28,8 @@ class HTTPGetManager: HTTPGetProtocol {
             return
         }
         
-        let headers = [
-          "Accept": "application/vnd.github+json",
-          "Authorization": "Bearer "
-        ]
-
+        let headers = HTTPHeaders.getHeaders(with: "<YOUR TOKEN HERE>")
+       
         let request = NSMutableURLRequest(url: url,
                                           cachePolicy: .reloadIgnoringLocalCacheData,
                                           timeoutInterval: 60.0)
